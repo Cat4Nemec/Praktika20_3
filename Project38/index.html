@@ -1,0 +1,52 @@
+Test 20.3
+<br>
+<p id="arritemlink">10</p>
+<p id="indexitemlink" style="display:none;">0</p>
+<a href="#" id="backlink">Back</a>
+<br>
+<a href="#" id="nextlink">Next</a>
+<br>
+<a href="#" id="resetlink">Reset</a>
+<br>
+<a href="#" id="setMaxlink">Set Max</a>
+<br>
+<a href="#" id="showlink">Show Item</a>
+<br>
+
+
+<script>
+	let A = [10,50,5,70,24];
+	const backLink = document.getElementById("backlink");
+	backLink.addEventListener("click", function() {
+		var i = parseInt(document.getElementById('indexitemlink').textContent);
+		if(i-1 >= 0) {
+			document.getElementById("arritemlink").innerHTML = A[i-1];
+			document.getElementById("indexitemlink").innerHTML = i-1;
+		}
+	});
+	const nextLink = document.getElementById("nextlink");
+	nextLink.addEventListener("click", function() {
+		var i = parseInt(document.getElementById('indexitemlink').textContent);
+		if(i+1 <= 4) {
+			document.getElementById("arritemlink").innerHTML = A[i+1];
+			document.getElementById("indexitemlink").innerHTML = i+1;
+		}
+	});
+	const resetLink = document.getElementById("resetlink");
+	resetLink.addEventListener("click", function() {
+		var i = 0;
+		document.getElementById("arritemlink").innerHTML = A[i];
+		document.getElementById("indexitemlink").innerHTML = i;
+	});
+	const setMaxLink = document.getElementById("setMaxlink");
+	setMaxLink.addEventListener("click", function() {
+		var i = 4;
+		document.getElementById("arritemlink").innerHTML = A[i];
+		document.getElementById("indexitemlink").innerHTML = i;
+	});
+	const showLink = document.getElementById("showlink");
+	showLink.addEventListener("click", function() {
+		var i = parseInt(document.getElementById('indexitemlink').textContent);
+		alert(A[i]+"["+i+"]");
+	});
+</script>
